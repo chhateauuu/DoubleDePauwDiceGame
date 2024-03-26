@@ -17,7 +17,7 @@ body, html {
     color: #fcd700; /* Using the gold color for the text */
     text-align: center;
     padding: 10px 0; /* Adds some space above and below the text */
-    font-size: 24px; /* Making the title text a bit larger */
+    font-size: 30px; /* Making the title text a bit larger */
     z-index: 1000; /* Ensures the title stays above all other content */
 }
 
