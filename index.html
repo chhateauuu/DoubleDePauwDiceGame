@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Double DePauw Dice Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="playerSetup">
-        <input type="number" id="playerCount" placeholder="Enter number of players" min="2" max="10">
-        <input type="number" id="roundCount" placeholder="Enter number of rounds" min="5" max="15">
+        <input type="number" id="playerCount" placeholder="Enter number of players (2-5)" min="2" max="5">
+        <input type="number" id="roundCount" placeholder="Enter number of rounds (2-5)" min="2" max="5">
         <button onclick="setupPlayers()">Start Game</button>
         <div id="gameExplanation">
             <p>Welcome to the Double DePauw Dice Game!</p>
-            <p>Roll three dice, each showing either 'D' (DePauw) for +2 points or 'W' (Wabash) for -1 point.</p>
+            <p>In the black dice, 'D' (DePauw) stands for +1, 'W' (Wabash) for -1, and '-' (Blank) for 0. The gold dice either multiplies the black 'D's by 2 if it's a 'D', the black 'W's by 2 if it's a 'W', or does nothing if it's a 'B'.</p>
             <p>The player with the highest score after the selected rounds wins. Good luck!</p>
         </div>
     </div>
     <div id="gameContainer">
         <div id="roundCounter">Round 1</div>
-        <div id="playerIcons"></div>
+        <div id="statusMessage">Player A's turn to roll</div>
         <div id="diceContainer">
-            <div class="dice" id="dice1"></div>
-            <div class="dice" id="dice2"></div>
-            <div class="dice" id="dice3"></div>
+            <div class="dice" id="dice1"></div> <!-- First black dice -->
+            <div class="dice" id="dice2"></div> <!-- Second black dice -->
+            <div class="dice" id="dice3" style="background-color: #fcd700; color: black;"></div> <!-- Gold dice -->
         </div>
         <div id="scoreBoard"></div>
-        <button id="rollButton">Roll Dice</button>
-        <button id="nextPlayerButton">Next Player</button>
+        <div id="buttonsContainer">
+            <div id="actionButtons">
+                <button id="rollButton">Roll Dice</button>
+                <button id="nextPlayerButton">Next Player</button>
+            </div>
+            <button id="quitButton" onclick="resetGame()">Quit Game</button>
+        </div>
+    </div>
+    <div id="finalScoresScreen" style="display:none;">
+        <div id="finalScores"></div>
+        <button onclick="resetGame()">Back to Main Screen</button>
     </div>
     <script src="script.js"></script>
 </body>
