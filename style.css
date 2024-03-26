@@ -7,6 +7,7 @@ body, html {
     background-color: #1a1a1a;
     color: #fcd700;
     font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
 }
 
 #playerSetup {
@@ -15,6 +16,29 @@ body, html {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+#playerSetup input, button, .dice {
+    margin: 15px; 
+    border-radius: 8px; 
+}
+
+#gameExplanation, #finalScores {
+    padding: 20px; 
+    border-radius: 12px; 
+}
+
+#buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#actionButtons {
+    display: flex; 
+    gap: 10px; 
 }
 
 #playerSetup input {
@@ -26,8 +50,10 @@ body, html {
     width: 200px;
     background-color: #333;
     color: #fcd700;
+    padding: 15px 25px; 
+    font-size: 18px; 
+    width: 250px;
 }
-
 #playerSetup button {
     padding: 10px 20px;
     border: 2px solid #fcd700;
@@ -36,9 +62,9 @@ body, html {
     color: #fcd700;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
+    transition: all 0.3s ease;font-size: 18px;
 
+}
 #gameExplanation {
     text-align: center;
     margin-top: 20px;
@@ -49,7 +75,6 @@ body, html {
     background-color: rgba(28, 28, 28, 0.9);
     border: 1px solid #fcd700;
 }
-
 #gameContainer {
     display: none;
     flex-direction: column;
@@ -58,29 +83,28 @@ body, html {
     width: 100%;
     text-align: center;
 }
-
 .dice {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     margin: 10px;
-    font-size: 25px;
-    line-height: 60px;
+    font-size: 30px;
+    line-height: 80px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(252, 215, 0, 0.7);
+    transform: rotate(0deg); 
+    backface-visibility: hidden; 
 }
 
-#dice1 {
+#dice3 {
     background-color: #fcd700;
     color: black;
 }
-
-#dice2, #dice3 {
+#dice2, #dice1 {
     background-color: #333;
     color: #fcd700;
     border: 2px solid #fcd700;
 }
-
 #scoreBoard {
     display: flex;
     justify-content: center;
@@ -88,7 +112,6 @@ body, html {
     margin-top: 20px;
     color: #fcd700;
 }
-
 button {
     padding: 10px 20px;
     border: 2px solid #fcd700;
@@ -101,20 +124,48 @@ button {
     margin: 10px;
 }
 
+#scoreBoard, #statusMessage, #roundCounter {
+    font-size: 24px;
+}
+
+.player-score {
+    font-size: 22px; 
+}
+
 button:hover {
     transform: scale(1.1);
     background-color: #fcd700;
     color: black;
 }
-
-@keyframes rollDice {
+@keyframes rollDice1 {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(180deg); }
     100% { transform: rotate(360deg); }
 }
 
-.roll-animation {
-    animation: rollDice 1s;
+@keyframes rollDice2 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rollDice3 {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+.dice1-animation {
+    animation: rollDice1 0.75s ease-out infinite;
+}
+
+.dice2-animation {
+    animation: rollDice2 0.75s ease-out infinite;
+}
+
+.dice3-animation {
+    animation: rollDice3 0.75s ease-out infinite;
 }
 
 .player-icon {
@@ -124,12 +175,13 @@ button:hover {
     margin: 0 15px;
     margin-bottom: 20px;
 }
-
 .player-score {
-    font-size: 18px;
-    margin-bottom: 5px;
+    font-size: 22px; 
 }
-
+.player-letter {
+    font-size: 24px;
+    margin-top: 5px;
+}
 #diceAndButtonContainer {
     display: flex;
     flex-direction: column;
@@ -137,15 +189,46 @@ button:hover {
     justify-content: center;
     margin-bottom: 20px;
 }
-
 #roundCounter {
     color: #fcd700;
     font-size: 22px;
     margin-bottom: 10px;
 }
-
 .player-icon.active {
     border: 3px solid #fcd700;
     padding: 5px;
     border-radius: 50%;
 }
+.player-icon.active .player-letter {
+    font-weight: bold; 
+    text-decoration: underline;
+    text-decoration-color: #fcd700; 
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 3px; 
+    color: #fcd700; 
+}
+
+#statusMessage {
+    color: #fcd700;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+#finalScoresScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+#finalScores {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(28, 28, 28, 0.9);
+    border: 1px solid #fcd700;
+    color: #fcd700;
+}
+
+
