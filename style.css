@@ -9,6 +9,17 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
 }
+#gameTitle {
+    position: fixed; /* This makes the title always stay in the same place on the screen */
+    top: 100px;
+    left: 0;
+    width: 100%;
+    color: #fcd700; /* Using the gold color for the text */
+    text-align: center;
+    padding: 10px 0; /* Adds some space above and below the text */
+    font-size: 24px; /* Making the title text a bit larger */
+    z-index: 1000; /* Ensures the title stays above all other content */
+}
 
 #playerSetup {
     display: flex;
